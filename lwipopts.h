@@ -68,8 +68,11 @@
 // don't include the tag comment - less work for the CPU, but may be harder to debug
 #define LWIP_HTTPD_SSI_INCLUDE_TAG 0
 // use generated fsdata
-#define HTTPD_FSDATA_FILE "fsdata.c"
+#define HTTPD_FSDATA_FILE "my_fsdata.c"
 
+#define HTTPD_DEBUG   0x80U
+#define DEBUG
+#undef NDEBUG
 #ifndef NDEBUG
 #define LWIP_DEBUG                  1
 #define LWIP_STATS                  1

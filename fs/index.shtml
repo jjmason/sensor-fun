@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AQI</title>
+    <style>
+        table > * {
+            padding: 10px;
+        }
+
+        td {
+            border: 1px solid black;
+        }
+        tr.even {
+            background-color: #90caf9;
+        }
+        tr.odd {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+<h2>AQI is <!--#aqi--></h2>
+<h2>Details</h2>
+<table>
+    <thead>
+    <tr><td></td><td>Number Concentration</td><td>Mass Concentration</td></tr>
+    </thead>
+    <tbody>
+        <tr class="even">
+            <td>0.5 &#956;m</td>
+            <td><!--#nc_0p5--></td>
+            <td></td>
+        </tr>
+        <tr class="odd">
+            <td>1.0  &#956;m</td>
+            <td><!--#nc_1p0--></td>
+            <td><!--#mc_1p0--></td>
+        </tr>
+        <tr>
+            <td>2.5  &#956;m</td>
+            <td><!--#nc_2p5--></td>
+            <td><!--#mc_2p5--></td>
+        </tr>
+        <tr>
+            <td>4.0  &#956;m</td>
+            <td><!--#nc_4p0--></td>
+            <td><!--#mc_4p0--></td>
+        </tr>
+        <tr>
+            <td>10.0  &#956;m</td>
+            <td><!--#nc_10p0--></td>
+            <td><!--#mc_10p0--></td>
+        </tr>
+        <tr>
+            <td>Typical Size (&#956;m)</td>
+            <td><!--#size_um--></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Status</h2>
+
+<p><!--#alarms--> </p>
+
+</body>
+</html>

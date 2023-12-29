@@ -5,6 +5,7 @@
 #ifndef PICA_NET_H
 #define PICA_NET_H
 #include "pico.h"
+#include "sensor.h"
 
 // An error type
 typedef enum net_err {
@@ -19,19 +20,22 @@ typedef enum net_err {
     E_NET_INTERNAL = 0x08
 } net_err_t;
 
-// passed to net_start_server, serves a response to a client by writing it
-// into the given buffer.
-typedef int (*response_source_f)(char *buffer, size_t buffer_size);
+typedef struct {
+    measurements_t *measurements;
+    float aqi;
+    const char *alarms;
+} response_data_t;
+
+// passed to net_connect_and_run, this gives a response_data_t
+typedef response_data_t * (*response_source_f)();
 
 
 int net_init();
 void net_led_blink(bool on);
 int net_connect_to_wifi(const char *ssid, const char *passwd);
-net_err_t net_start_server(uint16_t port, response_source_f responder);
 net_err_t net_connect_and_run(   const char *wifi_ssid,
                                   const char *wifi_pass,
                                   const char *mdns_hostname,
-                                  uint16_t server_port,
                                   response_source_f response_source);
 
 #endif //PICA_NET_H
